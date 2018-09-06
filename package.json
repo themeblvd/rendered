@@ -1,0 +1,19 @@
+{
+  "name": "jumpstart-child",
+  "scripts": {
+    "dev": "gulp --gulpfile ./build/gulpfile.js watch",
+    "build": "npm run clean && gulp --gulpfile ./build/gulpfile.js && npm run package-theme",
+    "build:css:dev": "gulp --gulpfile ./build/gulpfile.js build-css-dev",
+    "build:css:prod": "gulp --gulpfile ./build/gulpfile.js build-css-prod",
+    "clean": "gulp --gulpfile ./build/gulpfile.js clean",
+    "package-theme": "gulp --gulpfile ./build/gulpfile.js package-theme"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-zip": "^4.2.0",
+    "node-sass-tilde-importer": "^1.0.2"
+  }
+}
