@@ -12,7 +12,8 @@
  * The goal of this template file is to provide
  * readable content for search engines and allow
  * any inclusion of scripts for our React app
- * and any other background items like analytics.
+ * and any other background items like analytics,
+ * og data, meta tags, etc.
  *
  * @package Rendered
  * @author  Jason Bobich <jasonbobich@gmail.com>
@@ -23,15 +24,13 @@
 
 	<head>
 
-		<?php
-		/**
-		 * Fires inside the <head>, but
-		 * before wp_head().
-		 *
-		 * @since 1.0.0
-		 */
-		do_action( 'rendered_head' );
-		?>
+		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+
+		<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<?php wp_head(); ?>
 
@@ -39,43 +38,19 @@
 
 	<body <?php body_class(); ?>>
 
-		<?php
-		/**
-		 * Fires just inside the <body> tag, before
-		 * any HTML markup.
-		 *
-		 * @since 1.0.0
-		 */
-		do_action( 'rendered_before' );
-		?>
+		<?php get_template_part( 'template-parts/header' ); ?>
 
 		<?php if ( have_posts() ) : ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
-				/**
-				 * Fires when content should be displayed.
-				 *
-				 * @since 1.0.0
-				 */
-				do_action( 'rendered_content' );
-				?>
-
+				<?php get_template_part( 'template-parts/content' ); ?>
 
 			<?php endwhile; ?>
 
 		<?php endif; ?>
 
-		<?php
-		/**
-		 * Fires after all HTML markup, but before
-		 * wp_footer().
-		 *
-		 * @since 1.0.0
-		 */
-		do_action( 'rendered_after' );
-		?>
+		<?php get_template_part( 'template-parts/footer' ); ?>
 
 		<?php wp_footer(); ?>
 
