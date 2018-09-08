@@ -34,4 +34,8 @@
 		<?php echo esc_html( get_bloginfo( 'description' ) ); ?>
 	</p>
 
+	<?php if ( is_home() ) : ?>
+		<!-- @TODO Homepage description (i.e. info about the portfolio) -->
+	<?php endif; ?>
+
 </header><!-- .site-header -->
