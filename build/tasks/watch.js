@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 
-function watch() {
-  gulp.watch('../scss/**/*.scss', ['build-css-dev']);
+function watch(tasks) {
+  gulp.watch('../assets/src/scss/**/*.scss', tasks);
 }
 
 module.exports = watch;

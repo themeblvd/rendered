@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const zip = require('gulp-zip');
+const config = require('../../package.json');
 
 function packageTheme() {
   gulp
@@ -8,12 +9,12 @@ function packageTheme() {
       '!../**/readme.md',
       '!../{node_modules,node_modules/**/*}',
       '!../{build,build/**/*}',
-      '!../{scss,scss/**/*}',
+      '!../{assets/src,assets/src/**/*}',
       '!../.editorconfig',
       '!../.gitignore',
       '!../*.json'
     ])
-    .pipe(zip('wp-react-portfolio.zip'))
+    .pipe(zip(`rendered-${config.version}.zip`))
     .pipe(gulp.dest('../'));
 }
 
